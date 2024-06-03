@@ -34,7 +34,7 @@ interface ItemProps {
     level?: number
     onExpand?: () => void
     label: string
-    onClick: () => void
+    onClick?: () => void
     icon: LucideIcon
 }
 
@@ -150,7 +150,10 @@ export const Item = ({
                             side="right"
                             forceMount
                         >
-                            <DropdownMenuItem onClick={onArchive}>
+                            <DropdownMenuItem
+                                onClick={onArchive}
+                                className="cursor-pointer"
+                            >
                                 <Trash className="h-4 w-4 mr-2" />
                                 Delete
                             </DropdownMenuItem>
