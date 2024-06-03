@@ -21,6 +21,7 @@ import {
 import { usePathname } from "next/navigation"
 import { ElementRef, useRef, useState, useEffect } from "react"
 import { useMediaQuery } from "usehooks-ts"
+import { useSearch } from "@/hooks/use-search"
 
 import { toast } from "sonner"
 
@@ -33,6 +34,7 @@ import { TrashBox } from "./trash-box"
  *	Component Starts Here
  */
 export const Navigation = () => {
+    const search = useSearch()
     const pathname = usePathname()
     const isMobile = useMediaQuery("(max-width: 768px")
     const create = useMutation(api.documents.create)
@@ -163,7 +165,7 @@ export const Navigation = () => {
                         label="Search"
                         icon={Search}
                         isSearch
-                        onClick={() => {}}
+                        onClick={search.onOpen}
                     />
                     <Item label="Settings" icon={Settings} onClick={() => {}} />
                     <Item
