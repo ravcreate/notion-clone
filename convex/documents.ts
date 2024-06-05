@@ -367,3 +367,12 @@ export const removeCoverImage = mutation({
         return document
     },
 })
+
+export const getCoverImage = query({
+    args: { id: v.id("documents") },
+    handler: async (ctx, args) => {
+        const document = await ctx.db.get(args.id)
+
+        return document?.coverImage
+    },
+})

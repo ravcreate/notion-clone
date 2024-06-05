@@ -12,6 +12,7 @@ import { Spinner } from "@/components/ui/spinner"
 import { Search, Trash, Undo } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { ConfirmModal } from "@/components/modals/confirm-modal"
+import { useEdgeStore } from "@/lib/edgestore"
 
 export const TrashBox = () => {
     const router = useRouter()
@@ -44,7 +45,7 @@ export const TrashBox = () => {
         })
     }
 
-    const onRemove = (documentId: Id<"documents">) => {
+    const onRemove = async (documentId: Id<"documents">) => {
         const promise = remove({ id: documentId })
 
         toast.promise(promise, {
