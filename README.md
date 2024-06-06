@@ -19,3 +19,14 @@ Second, run the backend server.
 ```bash
 npx convex dev
 ```
+
+## Deployment
+
+When deploying on Vercel, override the build command:
+
+```bash
+npx convex deploy --cmd 'npm run build
+```
+
+Tech Stack:
+Next.js, Convex, Edgestore, Tailwind, Shadcn, BlockNote.js, Zustand
